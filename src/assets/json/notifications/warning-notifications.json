@@ -1,0 +1,8 @@
+[
+  {
+    "notificationId": "w1",
+    "notificationType": "warning",
+    "textTitle":"Alerta",
+    "text": "Debes completar todos los campos para poder guardar una nueva oficina."
+  }
+]

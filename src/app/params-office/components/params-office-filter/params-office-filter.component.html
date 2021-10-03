@@ -1,0 +1,61 @@
+<div class="card">
+  <h2 class="mx-lg-3 mt-lg-3 ps-lg-2 headline-4 text-ligth-blue">Filtros de Consulta</h2>
+  <p class="mx-lg-3 ps-lg-2 text-neutro-tipografic text-explicative">Para consultar ingresa un código o nombre de alguna
+    oficina. También puedes crear una nueva oficina desde la opción “Crear nueva oficina”.</p>
+
+  <form [formGroup]="forma">
+    <div class="row mb-4 container-lg">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="row">
+          <div class="col-12">
+            <label for="oneDate" class="form-label sub-title-3 text-neutro-blue1">Código de la Oficina<span
+                class="text-danger">*</span></label>
+
+            <div class="right-inner-addon"><i class="icon-serch"
+                [ngClass]="{'icon-serch': !input1.disabled, 'icon-serch-disabled': input1.disabled}"></i><input #input1
+                placeholder="Ingresa el código de la oficina" type="text"
+                class="form-control input-primary-corporate sub-title-3"
+                [ngClass]="{'border border-danger': codeOfficeInValid, 'border border-success': codeOfficesValid}"
+                formControlName="codeOffice" (keyup)="infoInput(1)">
+            </div>
+            <div *ngIf="codeOfficeInValid">
+              <small class="text-danger text-validation">Por favor ingrese código.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="row">
+          <div class="col-12">
+            <label for="oneDate" class="form-label sub-title-3 text-neutro-blue1">Nombre de la oficina<span
+                class="text-danger">*</span></label>
+
+            <div class="right-inner-addon"><i class="icon-serch"
+                [ngClass]="{'icon-serch': !input2.disabled, 'icon-serch-disabled': input2.disabled}"></i><input #input2
+                placeholder="Ingresa el nombre de la oficina" type="text"
+                class="form-control input-primary-corporate sub-title-3"
+                [ngClass]="{'border border-danger': nameOfficeInValid, 'border border-success': nameOfficeValid}"
+                formControlName="nameOffice" (keyup)="infoInput(2)">
+            </div>
+            <div *ngIf="nameOfficeInValid">
+              <small class="text-danger text-validation">Por favor ingrese nombre.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 position-relative p-0">
+        <div class="row my-4 px-lg-0">
+          <div class="col-12 d-grid gap-2 p-lg-2">
+            <button class="btn btn-secondary sub-title-3 col-12 col-lg-4 ms-lg-3" [disabled]="forma.invalid"
+              (click)="clear()">Borrar
+              filtros</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+</div>

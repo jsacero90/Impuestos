@@ -1,0 +1,91 @@
+<div class="card my-4">
+  <div class="card-body p-4 py-2">
+    <!-- *ngIf="taxDates[0]?.totalAmount != 0; else elseBlock" -->
+    <!-- title screen and button list office -->
+    <div class="row my-3 px-0 align-text-top mx-0">
+      <p class="col-sm-8 headline-4 text-ligth-blue py-1 px-0 m-0">
+        Resultado de Consulta
+      </p>
+      <div class="col-sm-4 d-grid gap-2 px-0 d-flex justify-content-end">
+      </div>
+    </div>
+    <!-- / title screen and button list office -->
+  </div>
+
+  <div *ngIf="compensationList.length > 0 ; else elseBlock">
+
+    <div class="container">
+      <div class="border-neutro-blue3 border-shadow-corporate mb-4">
+        <div class="px-3">
+          <div class="p-3 mx-0">
+            <div class="row sub-title-2 mb-4 mx-0">
+              <dt class="
+                  col-2
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Año
+              </dt>
+              <dt class="
+                  col-2
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Mes
+              </dt>
+              <dt class="
+                  col-2
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Categoria
+              </dt>
+              <dt class="
+                  col-3
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Días de Consignación
+              </dt>
+              <dt class="
+                  col-3
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                <!-- (click)="open()" -->
+                Modificar
+              </dt>
+            </div>
+            <div>
+              <div class="row bg-table-row rounded mb-2 text-body-1 mx-0"
+                *ngFor="let data of compensationList; let i = index">
+                <div class="row bg-table-row rounded mb-2 text-body-1 mx-0">
+                  <!-- *ngFor="let data of pageOfItems; let i = index" -->
+                  <div class="col-2 text-center">{{ data?.year }}</div>
+                  <div class="col-2 text-center">{{ data?.month }}</div>
+                  <div class="col-2 text-center">{{ data?.taxName | titlecase }}</div>
+                  <div class="col-3 text-center">{{ data?.compensatoryDays }}</div>
+                  <div class="col-3 text-center">
+                    <a class="a-custom-primary icons-custom-stat position-relative" data-bs-toggle="modal"
+                      data-bs-target="#CreateModal" (click)="openEdit(data)"><i
+                        class="icon-pen-primary size-icon-1"></i>Editar</a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  <pagination [items]="officeList" [pageSize]="5" (changePage)="onChangePage($event)"></pagination> -->
+      </div>
+    </div>
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="d-flex justify-content-center mb-3">
+      Para visualizar una oficina por favor ingresa un código o un nombre de
+      oficina.
+    </div>
+  </ng-template>
+
+  <app-modal [componetModal]="componetModal"></app-modal>

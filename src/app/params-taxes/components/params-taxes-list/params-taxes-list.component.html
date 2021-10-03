@@ -1,0 +1,141 @@
+<div class="card my-4">
+  <div class="card-body p-4 py-2">
+
+    <!-- title screen and button list office -->
+    <div class="row my-3 px-0 align-text-top mx-0">
+      <p class="col-sm-12 col-lg-6 headline-4 text-ligth-blue py-1 px-0 m-0">
+        Resultado de Consulta
+      </p>
+      <div class="col-sm-12 col-lg-3  d-grid gap-2 px-0 d-flex justify-content-end">
+        <button type="button" class="btn btn-primary btn-impuestos position-absolute icons-custom-stat-btn"
+          (click)="open()">
+          <i class="icon-add-white size-icon-2"></i>
+          Crear nuevo tipo de impuesto
+        </button>
+
+      </div>
+
+
+      <div class="col-sm-12 col-lg-3  d-grid gap-2 px-0 d-flex justify-content-end ">
+        <button type="button" class="btn btn-secondary position-absolute" (click)="open()">
+          Crear nueva categoría de impuesto
+        </button>
+
+      </div>
+
+    </div>
+    <!-- / title screen and button list office -->
+  </div>
+
+  <ng-container *ngIf="taxesList.length > 0; else elseBlock">
+    <div class="container">
+      <div class="border-neutro-blue3 border-shadow-corporate mb-4">
+        <div class="px-3">
+          <div class="p-3 mx-0">
+            <div class="row sub-title-2 mb-4 mx-0">
+              <dt class="
+              col-2
+              text-center text-corporate-occidente-dark
+              sub-title-2
+            ">
+                Categoría
+              </dt>
+              <dt class="
+          col-3
+          text-center text-corporate-occidente-dark
+          sub-title-3
+        ">
+                Nombre del tipo
+                de impuesto
+              </dt>
+              <dt class="
+                  col
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Código de Operación
+              </dt>
+              <dt class="
+                  col
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Cuenta Contable
+              </dt>
+              <dt class="
+                  col
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Código de Concepto
+              </dt>
+              <dt class="
+              col
+              text-center text-corporate-occidente-dark
+              sub-title-2
+            ">
+                Estado
+              </dt>
+              <dt class="
+                  col-1
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Modificar
+              </dt>
+            </div>
+            <div>
+
+              <div class="row bg-table-row rounded mb-2 text-body-1 mx-0"
+                *ngFor="let taxe of pageOfItems; let i = index">
+                <div class="col-2 text-center">{{ taxe?.tax.name | titlecase}}</div>
+                <div class="col-3 text-center">{{ taxe?.description | titlecase }}</div>
+                <div class="col text-center">{{ taxe?.operationCode }}</div>
+                <div class="col text-center">{{ taxe?.account }}</div>
+                <div class="col text-center">{{ taxe?.taxTypeCode }}</div>
+                <div class="col-2 row">
+                  <div class="col-6 text-end">Habilitar</div>
+                  <div class="
+                      col-6
+                      text-start
+                      form-check form-switch
+                      icons-custom-end
+                      position-relative
+                    ">
+                    <i [id]="'icon' + i" #iconToggle [ngClass]="{
+                        'icon-error-red': taxe?.taxTypeStatus === 0,
+                        'icon-check-green': taxe?.taxTypeStatus === 1
+                      }"></i>
+                    <input class="form-check-input" type="checkbox" [id]="'toggle' + i" #toggle
+                      [checked]="taxe?.taxTypeStatus === 1" (change)="
+                        checkInput($event, 'icon' + i, taxe.taxTypeCode, taxe.tax.code)
+                      " />
+                  </div>
+                </div>
+                <div class="col-1 text-center">
+                  <a class="a-custom-primary icons-custom-stat position-relative" data-bs-toggle="modal"
+                    data-bs-target="#CreateModal" (click)="openEdit(taxe)"><i
+                      class="icon-pen-primary size-icon-1"></i>Editar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <pagination [items]="taxesList" [pageSize]="5" (changePage)="onChangePage($event)"></pagination>
+    </div>
+
+
+
+
+  </ng-container>
+
+  <ng-template #elseBlock>
+    <div class="d-flex justify-content-center mb-3">
+      Para visualizar una oficina por favor ingresa un código o un nombre de
+      oficina.
+    </div>
+  </ng-template>
+</div>
+
+<app-modal [componetModal]="componetModal"></app-modal>

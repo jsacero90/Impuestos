@@ -1,0 +1,110 @@
+<div class="jumbotron jumbotron-fluid pt-3 mx-4">
+  <div class="container px-2">
+    <h2 class="custom-title headline-4 text-corporate-occidente-dark">Reportes planos distritos</h2>
+    <p class="text-neutro-tipografic text-explicative my-4">
+      Recuerda que los campos marcados con (<span class="text-danger">*</span>)
+      son obligatorios.
+    </p>
+  </div>
+  <form [formGroup]="forma" id="forma">
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="dateInput" class="form-label sub-title-3 text-neutro-blue1">Fecha<span
+                class="text-danger">*</span></label>
+
+            <div>
+              <input type="date" id="dateInput" class="custom-place form-control input-primary-corporate sub-title-3"
+                formControlName="dateInput" [ngClass]="{
+                  'border border-danger': dateInputInValid,
+                  'border border-success': dateInputValid
+                }" />
+            </div>
+            <div *ngIf="dateInputInValid">
+              <small class="text-danger text-validation">Debe ingresar una fecha valida</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="consecutiveInput" class="form-label sub-title-3 text-neutro-blue1">Consecutivo<span
+                class="text-danger">*</span></label>
+
+            <div>
+              <i [ngClass]="{ 'icon-check': consecutiveInputFileValid }"></i>
+              <input id="consecutiveInput" type="text"
+                class="custom-place form-control input-primary-corporate sub-title-3"
+                placeholder="Ingrese un número para el reporte" formControlName="consecutiveInput" [ngClass]="{
+                  'is-invalid': consecutiveInputInValid,
+                  'is-valid': consecutiveInputFileValid
+                }" />
+            </div>
+            <div *ngIf="consecutiveInputInValid">
+              <small class="text-danger text-validation">-Solo se permite maximo 6 caracteres<br>-Campo
+                obligatorio</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="typeFile" class="form-label sub-title-3 text-neutro-blue1">Tipo de archivo<span
+                class="text-danger">*</span></label>
+
+            <div class="right-inner-addon">
+              <select id="typeFile" class="form-select select-primary-corporate sub-title-3" formControlName="typeFile"
+                [ngClass]="{
+                          'border border-danger': typeFileInValid,
+                          'border border-success': typeFileValid
+                        }">
+                <option value="noSelect" selected disabled hidden class="sub-title-3">Selecciona un tipo de archivo
+                </option>
+                <option value="STATEMENT">Declaraciones</option>
+                <option value="BILL">Facturas y otros</option>
+                <option value="NOT_GENERATED">No generados por la administración</option>
+
+              </select>
+            </div>
+
+            <div *ngIf="typeFileInValid">
+              <small class="text-danger text-validation">Selecione una opción</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="col-12 d-grid gap-2">
+          <button id="btnCancel" type="button" class="btn btn-secondary" (click)="closeModal()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="col-12 d-grid gap-2">
+          <button type="button" class="btn btn-primary" (click)="dowloadFile()" [disabled]="forma.invalid">
+            Descargar
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>

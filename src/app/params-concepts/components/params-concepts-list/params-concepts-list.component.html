@@ -1,0 +1,107 @@
+<div class="card my-4">
+  <div class="card-body p-4 py-2">
+    <!-- title screen and button list concept -->
+    <div class="row my-3 px-0 align-text-top mx-0">
+      <p class="col-sm-8 headline-4 text-ligth-blue py-1 px-0 m-0">
+        Resultado de Consulta
+      </p>
+      <div class="col-sm-4 d-grid gap-2 px-0 d-flex justify-content-end">
+        <button type="button" class="btn btn-primary dimentBtn position-absolute icons-custom-stat-btn"
+          (click)="open()">
+          <i class="icon-add-white size-icon-2"></i>
+          Crear nuevo concepto
+        </button>
+
+      </div>
+    </div>
+    <!-- / title screen and button list concept -->
+  </div>
+
+  <ng-container *ngIf="conceptList.length > 0; else elseBlock">
+    <div class="container">
+      <div class="border-neutro-blue3 border-shadow-corporate mb-4">
+        <div class="px-3">
+          <div class="p-3 mx-0">
+            <div class="row sub-title-2 mb-4 mx-0">
+              <dt class="
+                  col-3
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Código
+              </dt>
+              <dt class="
+                  col-3
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Nombre del concepto
+              </dt>
+              <dt class="
+                  col-3
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Estado
+              </dt>
+              <dt class="
+                  col-3
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Modificar
+              </dt>
+            </div>
+            <div>
+
+              <div class="row bg-table-row rounded mb-2 text-body-1 mx-0"
+                *ngFor="let concept of pageOfItems; let i = index">
+                <div class="col-3 text-center">{{ concept?.conceptCode }}</div>
+                <div class="col-3 text-center">
+                  {{ concept?.conceptName | titlecase }}
+                </div>
+                <div class="col-3 row">
+                  <div class="col-6 text-end">Habilitar</div>
+                  <div class="
+                      col-6
+                      text-start
+                      form-check form-switch
+                      icons-custom-end
+                      position-relative
+                    ">
+                    <i [id]="'icon' + i" #iconToggle [ngClass]="{
+                        'icon-error-red': concept?.status === 0,
+                        'icon-check-green': concept?.status === 1
+                      }"></i>
+                    <input class="form-check-input" type="checkbox" [id]="'toggle' + i" #toggle
+                      [checked]="concept?.status === 1" (change)="
+                        checkInput($event, 'icon' + i, concept.conceptCode)
+                      " />
+                  </div>
+                </div>
+                <div class="col-3 text-center">
+                  <a class="a-custom-primary icons-custom-stat position-relative" data-bs-toggle="modal"
+                    (click)="openEdit(concept)" data-bs-target="#CreateModal"><i
+                      class="icon-pen-primary size-icon-1"></i>Editar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <pagination [items]="conceptList" [pageSize]="10" (changePage)="onChangePage($event)"></pagination>
+    </div>
+
+
+
+
+  </ng-container>
+
+  <ng-template #elseBlock>
+    <div class="d-flex justify-content-center mb-3">
+      Para visualizar una oficina por favor ingresa un código o un nombre de
+      oficina.
+    </div>
+  </ng-template>
+</div>
+<app-modal [componetModal]="componetModal"></app-modal>

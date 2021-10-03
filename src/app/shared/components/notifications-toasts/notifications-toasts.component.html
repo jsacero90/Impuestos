@@ -1,0 +1,25 @@
+<div class="toast-container position-fixed end-0 p-3 custom-container-toast" style="z-index: 1084">
+
+  <div class="toast ps-0 ms-0 row border"
+    [ngClass]="{'show': this.notifications.length > 0, 'border-danger':notification?.notificationType === 'error', 'border-success':notification?.notificationType === 'success', 'border-warning':notification?.notificationType === 'warning' }"
+    role="alert" aria-live="assertive" aria-atomic="false" *ngFor="let notification of notifications">
+    <div class="col-1 p-0 m-0 position-relative"
+      [ngClass]="{'bg-danger':notification?.notificationType === 'error', 'bg-success':notification?.notificationType === 'success', 'bg-warning':notification?.notificationType === 'warning'}">
+      <div class="icon-toasts-error"></div>
+    </div>
+    <div class="col-11 p-0 m-0">
+      <div class="toast-header pb-0 mb-0 d-flex justify-content-end">
+        <button type="button" class="btn-close"
+          [ngClass]="{'btn-close-danger':notification?.notificationType === 'error', 'btn-close-success':notification?.notificationType === 'success', 'btn-close-warning':notification?.notificationType === 'warning'}"
+          data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body pt-0 mt-0 pb-2 mb-0">
+        <h2 class="sub-title-1 mb-0"
+          [ngClass]="{'text-danger':notification?.notificationType === 'error', 'text-success':notification?.notificationType === 'success', 'text-warning':notification?.notificationType === 'warning'}">
+          {{notification.textTitle}}</h2>
+        <p class="text-explicative text-neutro-tipografi">{{notification.text}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

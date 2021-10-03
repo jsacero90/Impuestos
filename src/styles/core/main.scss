@@ -1,0 +1,12 @@
+@import "../application";
+
+$font-family-sans-serif: $global-font;
+
+$primary: $corporate-semantic-blue2;
+$secondary: $corporate-neutro-gray3;
+$info: $corporate-dark-blue;
+$success: $corporate-semantic-green1;
+$danger: $corporate-semantic-red2;
+$warning: $corporate-semantic-yellow2;
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";

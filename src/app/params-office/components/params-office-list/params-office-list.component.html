@@ -1,0 +1,108 @@
+<div class="card my-4">
+  <div class="card-body p-4 py-2">
+    <!-- *ngIf="taxDates[0]?.totalAmount != 0; else elseBlock" -->
+    <!-- title screen and button list office -->
+    <div class="row my-3 px-0 align-text-top mx-0">
+      <p class="col-sm-8 headline-4 text-ligth-blue py-1 px-0 m-0">
+        Resultado de Consulta
+      </p>
+      <div class="col-sm-4 d-grid gap-2 px-0 d-flex justify-content-end">
+        <button type="button" class="btn btn-primary dimentBtn" (click)="open()">
+          <span class="icon"></span>
+          Crear nueva oficina
+        </button>
+
+      </div>
+    </div>
+    <!-- / title screen and button list office -->
+  </div>
+
+  <ng-container *ngIf="officeList.length > 0; else elseBlock">
+    <div class="container">
+      <div class="border-neutro-blue3 border-shadow-corporate mb-4">
+        <div class="px-3">
+          <div class="p-3 mx-0">
+            <div class="row sub-title-2 mb-4 mx-0">
+              <dt class="
+                  col-3
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Código de la Oficina
+              </dt>
+              <dt class="
+                  col-3
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Nombre de la oficina
+              </dt>
+              <dt class="
+                  col-3
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Estado
+              </dt>
+              <dt class="
+                  col-3
+                  text-center text-corporate-occidente-dark
+                  sub-title-2
+                ">
+                Modificar
+              </dt>
+            </div>
+            <div>
+              <!--               <div class="row bg-table-row rounded mb-2 text-body-1 mx-0"
+                *ngFor="let office of officeList; let i = index"> -->
+              <div class="row bg-table-row rounded mb-2 text-body-1 mx-0"
+                *ngFor="let office of pageOfItems; let i = index">
+                <div class="col-3 text-center">{{ office?.officeCode }}</div>
+                <div class="col-3 text-center">
+                  {{ office?.officeName | titlecase }}
+                </div>
+                <div class="col-3 row">
+                  <div class="col-6 text-end">Habilitar</div>
+                  <div class="
+                      col-6
+                      text-start
+                      form-check form-switch
+                      icons-custom-end
+                      position-relative
+                    ">
+                    <i [id]="'icon' + i" #iconToggle [ngClass]="{
+                        'icon-error-red': office?.officeStatus === 0,
+                        'icon-check-green': office?.officeStatus === 1
+                      }"></i>
+                    <input class="form-check-input" type="checkbox" [id]="'toggle' + i" #toggle
+                      [checked]="office?.officeStatus === 1" (change)="
+                        checkInput($event, 'icon' + i, office.officeCode)
+                      " />
+                  </div>
+                </div>
+                <div class="col-3 text-center">
+                  <a class="a-custom-primary icons-custom-stat position-relative" data-bs-toggle="modal"
+                    data-bs-target="#CreateModal" (click)="openEdit(office)"><i
+                      class="icon-pen-primary size-icon-1"></i>Editar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <pagination [items]="officeList" [pageSize]="5" (changePage)="onChangePage($event)"></pagination>
+    </div>
+
+
+
+
+  </ng-container>
+
+  <ng-template #elseBlock>
+    <div class="d-flex justify-content-center mb-3">
+      Para visualizar una oficina por favor ingresa un código o un nombre de
+      oficina.
+    </div>
+  </ng-template>
+</div>
+<app-modal [componetModal]="componetModal"></app-modal>

@@ -1,0 +1,50 @@
+[
+  {
+    "sectionId":"s1",
+    "name": "Oficinas",
+    "icon":"./../assets/img/icons/calendar-primary.svg",
+    "funtions": ["Crea una oficina", "Edita una oficina","Cambia el estado de una oficina"],
+    "url": "administrar/oficinas"
+},
+{
+  "sectionId":"s2",
+  "name": "Impuestos",
+  "icon":"Error",
+  "funtions": [
+      "Crea un impuesto",
+      "Edita un impuesto",
+      "Cambia el estado de un impuesto"
+  ],
+  "url": "administrar/impuestos"
+},
+{
+  "sectionId":"s3",
+  "name": "Días de Compensación",
+  "icon":"Error",
+  "funtions": [
+      "Edita días de compensación"
+  ],
+  "url": "administrar/dias-compensacion"
+},
+{
+  "sectionId":"s4",
+  "name": "Días festivos",
+  "icon":"Error",
+  "funtions": [
+    "Crea las fechas de los días festivos",
+    "Elimina las fechas de los días festivos"
+  ],
+  "url": "administrar"
+},
+{
+  "sectionId":"s4",
+  "name": "Conceptos",
+  "icon":"Error",
+  "funtions": [
+    "Crea un concepto",
+    "Edita un concepto",
+    "Cambia el estado de un concepto"
+  ],
+  "url": "administrar/conceptos"
+}
+]

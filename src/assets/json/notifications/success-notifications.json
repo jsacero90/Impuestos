@@ -1,0 +1,34 @@
+[
+  {
+    "notificationId": "s1",
+    "notificationType": "success",
+    "textTitle":"Exitoso",
+    "text": "Se ha descargado con éxito el recaudo."
+  },
+  {
+    "notificationId": "s2",
+    "notificationType": "success",
+    "textTitle":"Exitoso",
+    "text": "Se ha editado con éxito el tipo de impuesto."
+  },
+  {
+
+    "notificationId": "s3",
+    "notificationType": "success",
+    "textTitle":"Exitoso",
+    "text": "Se ha editado con éxito el concepto."
+  },
+  {
+    "notificationId": "s4",
+    "notificationType": "success",
+    "textTitle":"Exitoso",
+    "text": "Se ha creado con éxito la oficina."
+  },
+  {
+    "notificationId": "s5",
+    "notificationType": "success",
+    "textTitle":"Exitoso",
+    "text": "Se ha actualizado con éxito la oficina."
+  }
+
+]

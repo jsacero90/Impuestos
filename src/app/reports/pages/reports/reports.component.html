@@ -1,0 +1,32 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container mt-5">
+    <app-headerpages textTitle="Reportes" [textBody]="textBody"></app-headerpages>
+  </div>
+  <div class="container px-0">
+    <div class="container  mb-5 pb-5 d-flex gap-3 align-content-start flex-wrap">
+      <div *ngFor="let card of section">
+        <!--  -->
+        <div class="card custom-section">
+          <div class="card-body">
+            <div class="row">
+              <h5 class="card-title headline-4 text-ligth-blue"> <span [class]="card.sectionId"></span>{{card.name}}
+              </h5>
+            </div>
+            <div class="row">
+              <p *ngFor="let funtion of card.funtions" class="text-explicative py-0 my-0"><span
+                  class="custom-list-check"></span>{{funtion}}</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a *ngIf="card.url !== 'modal1', else btnModal" class="btn btn-secondary mb-3" (click)="target(card.url)">Ir
+              a
+              esta sección</a>
+            <ng-template #btnModal><button class="btn btn-secondary mb-3" (click)="open()">Generar reporte</button>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal [componetModal]="componetModal"></app-modal>

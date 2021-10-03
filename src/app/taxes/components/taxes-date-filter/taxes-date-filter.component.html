@@ -1,0 +1,102 @@
+<div class="card">
+  <h2 class="mx-lg-3 mt-lg-3 ps-lg-2 headline-4 text-ligth-blue">Filtros de Consulta</h2>
+  <p class="mx-lg-3 ps-lg-2 text-neutro-tipografic text-explicative">Selecciona una fecha de recaudo específica o activa
+    la
+    opción
+    seleccionar
+    rangos de
+    fecha para consultar los reportes y descargar el recaudo electrónico.</p>
+  <div class="border-text-div border-neutro-gray2 mx-lg-4 mt-lg-3">
+    <div class="border-text sub-title-1 text-neutro-gray2">Fecha</div>
+    <form [formGroup]="forma">
+      <div class="row mb-4 container-lg">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+          <div class="row custom-border-right-neutro-gray2 pe-lg-3 me-lg-2">
+            <div class="col-12">
+              <div class="row mb-3">
+                <div class="col-9 text-neutro-tipografic text-explicative">
+                  Seleccione fecha especifica
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="enableOneDate" formControlName="enableOneDate"
+                      (change)="changeCheck($event)" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="oneDate" class="form-label sub-title-3 text-neutro-blue1">Fecha selecionada<span
+                  class="text-danger">*</span></label>
+              <input type="date" class="form-control input-primary-corporate sub-title-3" id="oneDate"
+                formControlName="oneDate" placeholder="hola mundo" [ngClass]="{
+                  'border border-danger': oneDateInValid,
+                  'border border-success': oneDateValid
+                }" />
+              <div *ngIf="oneDateInValid">
+                <small class="text-danger text-validation">Opp! Algo ha salido mal aquí.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="
+            col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 col-xxl-8
+            mt-3 mt-sm-3 mt-md-0 mt-lg-0 mt-xl-0 mt-xxl-0
+          ">
+          <div class="row">
+            <div class="col-12">
+              <div class="row mb-3">
+                <div class="col-9 text-neutro-tipografic text-explicative">
+                  Selecione rangos de fechas
+                </div>
+                <div class="col-3">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="enableRangeDate"
+                      formControlName="enableRangeDate" (change)="changeCheck($event)" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                  <label for="dateStart" class="form-label sub-title-3 text-neutro-blue1">Fecha inicio<span
+                      class="text-danger">*</span></label>
+                  <input type="date" class="form-control input-primary-corporate sub-title-3" id="dateStart"
+                    formControlName="dateStart" [ngClass]="{
+                      'border border-danger': dateStartInValid,
+                      'border border-success': dateStartValid
+                    }" />
+                  <div *ngIf="dateStartInValid">
+                    <small class="text-danger text-validation">Opp! Algo ha salido mal aquí.</small>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                  <label for="dateEnd" class="form-label sub-title-3 text-neutro-blue1">Fecha final<span
+                      class="text-danger">*</span></label>
+                  <input type="date" class="form-control input-primary-corporate sub-title-3" id="dateEnd"
+                    formControlName="dateEnd" [ngClass]="{
+                      'border border-danger': dateEndInValid,
+                      'border border-success': dateEndValid
+                    }" />
+                  <div *ngIf="dateEndInValid">
+                    <small class="text-danger text-validation">Opp! Algo ha salido mal aquí.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="row my-3 px-lg-0 align-text-top container-lg">
+    <div class="col-12 col-lg-8"></div>
+    <div class="d-grid gap-2 col-12 col-lg-4 ps-lg-0">
+      <button type="button" class="btn btn-primary" (click)="send()" [disabled]="forma.invalid">
+        Consultar
+      </button>
+    </div>
+  </div>
+</div>

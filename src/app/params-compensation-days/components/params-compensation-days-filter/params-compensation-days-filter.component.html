@@ -1,0 +1,99 @@
+<div class="card">
+  <h2 class="mx-lg-3 mt-lg-3 ps-lg-2 headline-4 text-ligth-blue">Filtros de Consulta</h2>
+  <p class="mx-lg-3 ps-lg-2 text-neutro-tipografic text-explicative">Para consultar selecciona un año, un mes y una
+    categoría de impuesto.</p>
+
+  <form [formGroup]="forma">
+
+    <div class="row mb-4 container-lg">
+
+      <div class="col-12 col-sm-12 col-md-3">
+        <div class="row">
+          <div class="col-12">
+            <label for="year" class="form-label sub-title-3 text-neutro-blue1">Año<span
+                class="text-danger">*</span></label>
+
+
+            <div class="right-inner-addon">
+              <select id="year" class="form-select select-primary-corporate" formControlName="year" [ngClass]="{
+                'border border-danger': yearInValid,
+                'border border-success': yearValid
+              }">
+                <!--  -->
+                <option value="noSelect" selected disabled hidden>Selecciona un año</option>
+                <option [value]="year" *ngFor="let year of years">
+                  {{year}}</option>
+              </select>
+            </div>
+
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Opp! Algo ha salido mal aquí.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-3">
+        <div class="row">
+          <div class="col-12">
+            <label for="oneDate" class="form-label sub-title-3 text-neutro-blue1">Mes<span
+                class="text-danger">*</span></label>
+
+
+            <div class="right-inner-addon">
+              <select id="categoryTaxes" class="form-select select-primary-corporate" formControlName="mount" [ngClass]="{
+                'border border-danger': mountInValid,
+                'border border-success': mountValid
+              }">
+                <!--  -->
+                <option value="noSelect" selected disabled hidden>Selecciona un mes</option>
+                <option [value]="mount?.mountId" *ngFor="let mount of mounts">
+                  {{mount?.mountId}}</option>
+              </select>
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Opp! Algo ha salido mal aquí.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-3">
+        <div class="row">
+          <div class="col-12">
+            <label for="taxe" class="form-label sub-title-3 text-neutro-blue1">Categoría de impuesto<span
+                class="text-danger">*</span></label>
+
+
+            <div class="right-inner-addon">
+              <select id="taxe" class="form-select select-primary-corporate" formControlName="taxe" [ngClass]="{
+                'border border-danger': taxeInValid,
+                'border border-success': taxeValid
+              }">
+                <!--  -->
+                <option value="noSelect" selected disabled hidden>Selecciona una categoría</option>
+                <option [value]="categoryTaxe?.code" *ngFor="let categoryTaxe of categoryTaxesList">
+                  {{categoryTaxe?.name | titlecase}}</option>
+              </select>
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Opp! Algo ha salido mal aquí.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-3 position-relative p-0">
+        <div class="row my-4 px-lg-0">
+          <div class="col-12 d-grid gap-2">
+            <button
+              class="btn btn-primary sub-title-3 col-12 col-lg-4 position-absolute bottom-0 ms-3 ps-3 start-0 w-100"
+              [disabled]="forma.invalid" (click)="search()">Consultar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+</div>

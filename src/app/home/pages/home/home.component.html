@@ -1,0 +1,47 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container-fluid m-0 p-0">
+    <div class="home-main d-flex flex-column-reverse m-0 p-0">
+      <h1 class="headline-1 text-neutro-white banner-title">
+        Te damos la bienvenida.
+      </h1>
+      <h2 class="headline-2 text-neutro-white banner-title-2">Hola Karla,</h2>
+    </div>
+    <div>
+      <h1 class="headline-3 text-primary-dark banner-title-3">
+        Te puede interesar
+      </h1>
+      <hr class="custom-hr" />
+      <div
+        class="
+          container
+          mx-5
+          px-5
+          mb-5
+          pb-5
+          d-flex
+          flex-row
+          justify-content-center
+          gap-3
+        "
+      >
+        <div *ngFor="let card of cards">
+          <div class="card custom-card">
+            <img
+              src="assets/img/images/img_card.jpg"
+              class="card-img-top"
+              alt="imagen Card"
+            />
+            <div class="card-body">
+              <h5 class="sub-title-1">Lorem ipsum</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-secondary">Conoce más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

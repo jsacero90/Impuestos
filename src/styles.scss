@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import "styles/core/main";
+@import "styles/general";
+
+// border Styles
+.border-primary {
+  border-color: $corporate-ligth-blue !important;
+}
+
+//Text
+
+.subtitle-1-gray2 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: $corporate-neutro-gray2;
+}
+
+//heading
+.translate-middle {
+  transform: translate(8%, -57%) !important;
+}
+.bg-text-p {
+  background-color: $corporate-neutro-bg;
+  color: $corporate-neutro-gray2;
+}
+hr {
+  color: $corporate-neutro-gray2;
+}
+
+.theader-none {
+  border-style: hidden;
+}
+
+table {
+  border-spacing: 7px;
+}

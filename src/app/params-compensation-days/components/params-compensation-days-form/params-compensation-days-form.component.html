@@ -1,0 +1,117 @@
+<div class="jumbotron jumbotron-fluid pt-3 mx-4">
+  <div class="container px-2">
+    <h2 class="custom-title headline-4 text-corporate-occidente-dark">Editar un día de compensación</h2>
+    <p class="text-neutro-tipografic text-explicative my-4">
+      Solo puedes modificar los días de consignación.
+    </p>
+  </div>
+  <form [formGroup]="forma" id="forma">
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="year" class="form-label sub-title-3 text-neutro-blue1">Año</label>
+
+            <div>
+              <input id="year" type="text" class="custom-place form-control input-primary-corporate sub-title-3"
+                formControlName="year" [ngClass]="{
+                      'is-invalid': false,
+                      'is-valid': false
+                    }" />
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Debe ingresar nombre tipo de impuesto</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="month" class="form-label sub-title-3 text-neutro-blue1">Mes</label>
+
+            <div>
+              <input id="month" type="text" class="custom-place form-control input-primary-corporate sub-title-3"
+                formControlName="month" [ngClass]="{
+                  'is-invalid': false,
+                  'is-valid': false
+                }" />
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Por favor ingrese un código de operación</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="taxName" class="form-label sub-title-3 text-neutro-blue1">Categoría de impuesto</label>
+
+            <div>
+              <input id="taxName" type="text" class="custom-place form-control input-primary-corporate sub-title-3"
+                formControlName="taxName" [ngClass]="{
+                      'is-invalid': false,
+                      'is-valid': false
+                    }" />
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Debe ingresar nombre tipo de impuesto</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="compensatoryDays" class="form-label sub-title-3 text-neutro-blue1"> Días de consignación</label>
+
+            <div>
+              <input id="compensatoryDays" type="text"
+                class="custom-place form-control input-primary-corporate sub-title-3" formControlName="compensatoryDays"
+                [ngClass]="{
+                  'is-invalid': false,
+                  'is-valid': false
+                }" />
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Por favor ingrese un código de operación</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="col-12 d-grid gap-2">
+          <button id="btnCancel" type="button" class="btn btn-secondary" (click)="closeModal()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="col-12 d-grid gap-2">
+          <button type="button" class="btn btn-primary" (click)="send()" [disabled]="forma.invalid">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>

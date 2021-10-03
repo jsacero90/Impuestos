@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-auto p-0 bg-white custom-sidebar sticky-top" style="width: 100px">
+      <app-nav-bar></app-nav-bar>
+    </div>
+    <div class="col-sm p-0 m-0 min-vh-100">
+      <app-notifications-toasts></app-notifications-toasts>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<app-modal></app-modal>

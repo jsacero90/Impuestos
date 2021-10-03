@@ -1,0 +1,647 @@
+/* Link */
+.a-custom-primary {
+  color: $corporate-occidente-base;
+  text-decoration: none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.a-custom-primary:hover {
+  color: $corporate-occidente-base;
+  text-decoration: underline;
+}
+
+.a-custom-primary:focus {
+  color: $corporate-primary-dark;
+  text-decoration: underline;
+}
+
+/* General button */
+.btn {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.btn:hover {
+  box-shadow: 1px 5px 10px rgba(65, 114, 179, 0.3) !important;
+  background: $primary;
+}
+
+.btn:disabled {
+  background: $corporate-neutro-table-row;
+  border-color: $corporate-neutro-blue3;
+  opacity: inherit;
+}
+
+/* Button primary */
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary.active {
+  background: $corporate-btn-primary-active;
+  box-shadow: none;
+}
+
+.btn-primary:disabled {
+  color: $corporate-btn-primary-active;
+}
+
+/* button secundary */
+
+.btn-secondary {
+  color: $corporate-occidente-dark;
+  border: 1px solid $corporate-neutro-blue2;
+  background: #ffff;
+}
+
+.btn-secondary:hover {
+  color: $corporate-btn-primary-active;
+  background: #ffff;
+}
+
+.btn-secondary:hover {
+  box-shadow: none;
+  border: 1px solid $corporate-neutro-blue2;
+}
+
+.btn-secondary:disabled,
+.btn-secondary.disabled {
+  color: $corporate-btn-primary-active;
+  border-color: $corporate-neutro-blue2 !important;
+}
+
+.btn-secondary:active,
+.btn-secondary:focus,
+.btn-secondary.active {
+  background: $primary;
+  color: #ffff;
+  box-shadow: none;
+}
+
+/* Input check */
+
+.form-check-input {
+  background-color: #ffff !important;
+  border-radius: 10px !important;
+  box-sizing: border-box !important;
+  width: 37px !important;
+  height: 20px !important;
+  box-shadow: none !important;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  padding: 2px;
+}
+
+.form-switch .form-check-input {
+  border-color: $corporate-neutro-blue2;
+  background-image: url(../assets/img/icons/cheched_off.svg);
+}
+
+.form-switch .form-check-input:focus {
+  border-color: $corporate-neutro-blue2;
+  background-image: url(../assets/img/icons/cheched_off.svg);
+}
+
+.form-switch .form-check-input:checked {
+  border-color: $corporate-neutro-blue2;
+  background-image: url(../assets/img/icons/cheched_on.svg);
+}
+
+.form-switch .form-check-input:disabled {
+  border-color: $corporate-neutro-blue3 !important;
+  background-color: #f4f6fa !important;
+  background-image: url(../assets/img/icons/cheched_disable.svg);
+}
+
+/* Input general */
+
+input,
+select {
+  box-shadow: none !important;
+}
+
+/* Input date */
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-outer-spin-button {
+  background-size: 22px !important;
+}
+
+.input-primary-corporate {
+  border: 1px solid $corporate-neutro-blue2;
+  box-sizing: border-box;
+  color: $corporate-neutro-gray2;
+}
+
+.input-primary-corporate[type="date"]::-webkit-calendar-picker-indicator,
+.input-primary-corporate[type="date"]::-webkit-inner-spin-button,
+.input-primary-corporate[type="date"]::-webkit-outer-spin-button {
+  background-image: url("../assets/img/icons/calendar-neutro-gray2.svg");
+  background-repeat: no-repeat;
+}
+
+.input-primary-corporate:focus[type="date"]::-webkit-calendar-picker-indicator,
+.input-primary-corporate:focus[type="date"]::-webkit-inner-spin-button,
+.input-primary-corporate:focus[type="date"]::-webkit-outer-spin-button,
+.input-primary-corporate:hover[type="date"]::-webkit-calendar-picker-indicator,
+.input-primary-corporate:hover[type="date"]::-webkit-inner-spin-button,
+.input-primary-corporate:hover[type="date"]::-webkit-outer-spin-button,
+.input-primary-corporate:active[type="date"]::-webkit-calendar-picker-indicator,
+.input-primary-corporate:active[type="date"]::-webkit-inner-spin-button,
+.input-primary-corporate:active[type="date"]::-webkit-outer-spin-button {
+  background: url("../assets/img/icons/calendar-primary.svg") no-repeat;
+}
+
+.input-primary-corporate:disabled[type="date"]::-webkit-calendar-picker-indicator,
+.input-primary-corporate:disabled[type="date"]::-webkit-inner-spin-button,
+.input-primary-corporate:disabled[type="date"]::-webkit-outer-spin-button {
+  background: url("../assets/img/icons/calendar-neutro-gray1.svg") no-repeat;
+}
+
+.input-primary-corporate:focus,
+.input-primary-corporate:hover,
+.input-primary-corporate:active {
+  border: 1px solid $primary;
+}
+
+.input-primary-corporate:active {
+  color: $corporate-neutro-tipografic;
+}
+
+.input-primary-corporate:disabled,
+.select-primary-corporate:disabled {
+  border: 1px solid $corporate-neutro-blue2;
+  background-color: $corporate-neutro-blue4;
+}
+
+/* select */
+
+.select-primary-corporate option {
+  color: $corporate-neutro-gray1;
+}
+
+.select-primary-corporate {
+  background: url(../assets/img/icons/select-down-neutro-gray2.svg) right / 25px
+    no-repeat;
+  border: 1px solid $corporate-neutro-blue2;
+  color: $corporate-neutro-gray1;
+}
+
+.select-primary-corporate:checked,
+.select-primary-corporate:focus,
+.select-primary-corporate:hover,
+.select-primary-corporate:active {
+  background: url(../assets/img/icons/select-down-primary.svg) right / 25px
+    no-repeat;
+}
+
+.select-primary-corporate:checked,
+.select-primary-corporate:active,
+.select-primary-corporate:focus {
+  border: 1px solid $primary;
+  color: $corporate-neutro-tipografic;
+}
+
+::-ms-expand {
+  display: none;
+}
+
+/* Background componet */
+.componet-bg-general {
+  background: $corporate-neutro-blue4;
+}
+
+/* card */
+.card {
+  box-shadow: none;
+}
+
+/* Border text*/
+.border-text-div {
+  margin-top: 20px;
+  border-radius: $border-radius;
+}
+
+.border-text {
+  width: max-content;
+  font-size: 18px;
+  margin: -15px 24px 5px;
+  background: #ffff;
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: center;
+}
+
+/* Border div */
+.border-neutro-gray2 {
+  border: 1px solid $corporate-neutro-gray2;
+}
+
+.border-neutro-blue3 {
+  border: 1px solid $corporate-neutro-blue3;
+}
+
+.border-shadow-corporate {
+  box-shadow: 0px 3px 9px rgba(229, 229, 229, 0.8);
+}
+
+// header
+.header {
+  height: 60px;
+  background: $corporate-gradient-blue;
+}
+
+// radio Button
+
+.form-check-input[type="radio"] {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.form-check .form-check-input[type="radio"] {
+  border-color: $corporate-neutro-blue2;
+}
+
+.form-check .form-check-input[type="radio"]:hover {
+  border-color: $corporate-check-primary-active;
+}
+
+.form-check .form-check-input[type="radio"]:focus {
+  border-color: $corporate-neutro-blue2;
+  //background-image: url(../assets/img/icons/cheched_off.svg);
+}
+
+.form-check .form-check-input[type="radio"]:checked {
+  border-color: $corporate-neutro-blue2;
+  background-image: url(../assets/img/icons/cheched_on.svg);
+}
+
+.form-check .form-check-input[type="radio"]:disabled {
+  border-color: $corporate-neutro-blue3 !important;
+  background-color: #f4f6fa !important;
+  background-image: url(../assets/img/icons/cheched_disable.svg);
+}
+
+.custom-container-toast {
+  z-index: 11;
+  top: 70px !important;
+}
+
+.toast {
+  width: 362px !important;
+}
+
+.toast-header {
+  height: 15px !important;
+}
+
+.toast-header .btn-close {
+  margin-top: 10px;
+}
+
+.btn-close-danger {
+  background: transparent url(../assets/img/icons/rood-red.svg) center/23px auto
+    no-repeat !important;
+  opacity: 10 !important;
+}
+.btn-close-success {
+  background: transparent url(../assets/img/icons/rood-green.svg) center/23px
+    auto no-repeat !important;
+  opacity: 10 !important;
+}
+
+.btn-close-warning {
+  background: transparent url(../assets/img/icons/rood-yellow.svg) center/23px
+    auto no-repeat !important;
+  opacity: 10 !important;
+}
+
+// notifications
+
+.icon-toasts-error,
+.icon-toasts-success {
+  position: absolute;
+  top: 5px;
+  bottom: 0;
+  left: 2px;
+  width: 100%;
+  height: 30%;
+  margin: auto;
+}
+
+.icon-toasts-error {
+  background: url(../assets/img/icons/info-white.svg) no-repeat;
+}
+
+.icon-toasts-success {
+  background: url(../assets/img/icons/check-white.svg) no-repeat;
+}
+
+// lodding
+
+.swal2-html-container-customer {
+  padding: 14px !important;
+  margin: 0px !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.swal2-popup-customer {
+  padding: 0 !important;
+  border-radius: 4px !important;
+  height: 104px !important;
+}
+
+.container-swal-loading {
+  position: relative;
+}
+
+.icon-swal-loading {
+  background: url(../assets/img/gif/Loading.gif) no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 8px;
+  width: 100%;
+  height: 30%;
+  margin: auto;
+}
+
+.swal2-html-container-customer-accept {
+  border-radius: 4px !important;
+}
+
+.swal2-popup-customer-accept {
+  height: 167px !important;
+}
+
+.btn-accept-custom {
+  height: 40px;
+  width: 218px;
+}
+
+// input serch
+.icon-serch {
+  background: url(../assets/img/icons/search-primary.svg) no-repeat;
+}
+
+.icon-check {
+  background: url(../assets/img/icons/check-green.svg) no-repeat;
+}
+
+.icon-serch-disabled {
+  background: url(../assets/img/icons/search-neutro-gray2.svg) no-repeat;
+}
+
+.right-inner-addon {
+  position: relative;
+}
+.right-inner-addon input {
+  padding-right: 35px !important;
+}
+.right-inner-addon i {
+  position: absolute;
+  right: 5px;
+  top: 7px;
+  padding: 12px 12px;
+  pointer-events: none;
+}
+
+// icons
+
+// icon toggle check
+.icons-custom-end.form-switch .form-check-input {
+  margin-left: -0.2em !important;
+}
+
+.icons-custom-end i {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  padding: 12px 12px;
+  pointer-events: none;
+}
+
+.icons-custom-end-modal i {
+  position: absolute;
+  right: 20px;
+  top: 2px;
+  padding: 12px 12px;
+  pointer-events: none;
+}
+
+.icons-custom-end i {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  padding: 12px 12px;
+  pointer-events: none;
+}
+
+.icons-custom-stat i {
+  position: absolute;
+  left: -25px;
+  top: 0px;
+  padding: 12px 12px;
+  pointer-events: none;
+}
+
+.icons-custom-stat-btn i {
+  position: absolute;
+  left: 5px;
+  padding: 12px 12px;
+  margin-left: -3px;
+  pointer-events: none;
+}
+
+// size icon
+
+.size-icon-1 {
+  background-size: 20px !important;
+}
+
+.size-icon-2 {
+  background-size: 25px !important;
+}
+
+.icon-error-red {
+  background: url(../assets/img/icons/rood-red.svg) no-repeat;
+}
+
+.icon-check-green {
+  background: url(../assets/img/icons/check-green.svg) no-repeat;
+}
+
+.icon-pen-primary {
+  background: url(../assets/img/icons/pen-primary.svg) no-repeat;
+}
+
+.icon-add-white {
+  background: url(../assets/img/icons/add-white.svg) no-repeat;
+}
+
+.icon-notebook1-primary {
+  background: url(../assets/img/icons/notebook1-primary.svg) no-repeat;
+}
+
+.icon-notebook2-primary {
+  background: url(../assets/img/icons/notebook2-primary.svg) no-repeat;
+}
+
+// icon TitleheadePages
+
+.iconTitleHeaderPages {
+  background: url(../assets/img/icons/info-primary.svg) no-repeat;
+  background-size: 1.5em;
+  float: left;
+  width: 1.9em;
+  height: 1.5em;
+  margin-top: 2px;
+}
+
+// paginator
+
+.pagination {
+  display: flex;
+  justify-content: right;
+}
+
+.pagination .first-item {
+  display: none;
+  border: 1px solid #4172b3 !important;
+}
+
+.pagination .last-item {
+  display: none;
+  border: 1px solid #4172b3 !important;
+}
+
+.pagination .page-item {
+  border: 1px solid #4172b3 !important;
+  cursor: pointer;
+}
+
+.previous-item {
+  border-top-left-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
+}
+
+.next-item {
+  border-top-right-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
+}
+
+.pagination .disabled {
+  color: #cdcdcd;
+  cursor: default;
+}
+
+.page-item.active .page-link {
+  background: #4172b3 !important;
+  border-color: #4172b3 !important;
+}
+
+.page-link {
+  color: #4172b3;
+}
+
+.page-item:hover {
+  background: rgba(65, 114, 179, 0.3);
+}
+// btn between  btn
+
+.justify-content-btn {
+  margin-right: -70px;
+}
+
+.btn-impuestos {
+  width: 235.15px !important;
+  margin-right: -3vw !important;
+}
+
+/* Section panel*/
+
+.iconTitlePanel {
+  background: url(../assets/img/icons/info-primary.svg) no-repeat;
+  background-size: 1.5em;
+  float: left;
+  width: 1.9em;
+  height: 1.5em;
+  margin-top: 2px;
+}
+
+.custom-list-check {
+  background: url(../assets/img/icons/check-green.svg) no-repeat;
+  background-size: 1.5em;
+  float: left;
+  width: 1.9em;
+  height: 1.5em;
+  margin-top: 2px;
+}
+
+.card-footer {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border-top: none !important;
+}
+
+/* section panel icons */
+.s1,
+.s2,
+.s3,
+.s4,
+.s5,
+.icon-notebook1-primary,
+.icon-notebook2-primary {
+  background-size: 1.3em;
+  float: left;
+  width: 1.9em;
+  height: 1.5em;
+  margin-top: 2px;
+}
+.s1 {
+  background: url(../assets/img/icons/sec/office-primary.svg) no-repeat;
+}
+
+.s2 {
+  background: url(../assets/img/icons/sec/taxes-primary.svg) no-repeat;
+}
+
+.s3 {
+  background: url(../assets/img/icons/sec/calendary-check-primary.svg) no-repeat;
+}
+
+.s4 {
+  background: url(../assets/img/icons/sec/calendary-primary.svg) no-repeat;
+}
+
+.s5 {
+  background: url(../assets/img/icons/sec/concepts-primary.svg) no-repeat;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+  background: $corporate-neutro-gray3;
+  border-radius: 22px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $corporate-neutro-gray1;
+  border-radius: 22px;
+  min-height: 5px !important;
+  max-height: 5px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: $corporate-neutro-gray3;
+  border-radius: 22px;
+}

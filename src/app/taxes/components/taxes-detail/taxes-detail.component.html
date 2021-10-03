@@ -1,0 +1,148 @@
+<div class="card my-4">
+  <div class="card-body p-4 py-2" *ngIf="taxDates[0]?.totalAmount != 0; else elseBlock">
+    <!-- title screen and button report -->
+    <div class="row my-3 px-0 align-text-top mx-0">
+      <p class="col-sm-8 headline-4 text-ligth-blue py-1 px-0 m-0">
+        Resultado de Consulta
+      </p>
+      <div class="col-sm-4 d-grid gap-2 px-0">
+        <button type="button" class="btn btn-primary" (click)="dowloadFile()">
+          <span class="icon"></span>
+          Descargar recaudo electrónico de ATH
+        </button>
+      </div>
+    </div>
+    <!-- / title screen and button report -->
+    <div *ngFor="let taxCategories of taxDates">
+      <!-- Type taxes array -->
+      <div *ngFor="let taxCategorie of taxCategories.taxCategories">
+        <div class="row border border-primary rounded border-2 p-2 my-4 mx-0">
+          <div class="col-sm-6">
+            <span class="sub-title-1 text-ligth-blue">Fecha de recaudo seleccionada :
+            </span>
+            <span>{{ taxCategorie.dateReport }}</span>
+          </div>
+          <div class="col-sm-6">
+            <span class="sub-title-1 text-ligth-blue">
+              Tipo de impuesto :
+            </span>
+            <span>{{ taxCategorie.name | titlecase }}</span>
+          </div>
+        </div>
+        <!-- header title  resumen dia -->
+        <div class="position-relative mt-5">
+          <hr />
+          <p class="
+              position-absolute
+              top-0
+              start-30
+              translate-middle
+              bg-text-p
+              px-2
+            ">
+            Resumen del día
+          </p>
+        </div>
+        <app-taxes-sumary [taxDate]="taxCategorie"></app-taxes-sumary>
+        <!-- header title Horario-->
+        <div class="position-relative mb-lg-4">
+          <hr />
+          <p class="
+              position-absolute
+              top-0
+              start-30
+              translate-middle
+              bg-text-p
+              px-2
+            ">
+            Detalle de los horarios
+          </p>
+        </div>
+        <!-- schedules array -->
+        <div *ngFor="let schedules of taxCategorie.schedules">
+          <p class="
+              border-2
+              sub-title-1
+              border-top-semantic-blue3 border-bottom-semantic-blue3
+              text-semantic-blue3
+              p-1
+              px-4
+            ">
+            {{ schedules.type | titlecase }}
+          </p>
+          <!-- operator table -->
+          <div *ngFor="let provider of schedules.collections">
+            <div class="
+                border-neutro-blue3 border-shadow-corporate
+                mb-4
+                border-text-div
+              ">
+              <div class="border-text text-ligth-blue">
+                {{ provider.entity }}
+              </div>
+              <!-- operator data transation table -->
+              <div class="px-3">
+                <div class="p-3 mx-0">
+                  <div class="row sub-title-2 mb-4 mx-0">
+                    <dt class="col"><span class="p-5">Código</span></dt>
+                    <dt class="col">Operación</dt>
+                    <dt class="col text-center">Cantidad</dt>
+                    <dt class="col">Valor</dt>
+                  </div>
+                  <div *ngFor="let operation of provider.operations">
+                    <div class="row bg-table-row rounded mb-2 text-body-1 mx-0">
+                      <div class="col">
+                        <span class="p-5">{{ operation.code }}</span>
+                      </div>
+                      <div class="col">{{ operation.name }}</div>
+                      <div class="col text-center">
+                        {{ operation.totalQuantity }}
+                      </div>
+                      <div class="col">
+                        {{
+                        operation.totalAmount | currency: "USD":"symbol":"3.0"
+                        }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-9 offset-md-3">
+                    <div class="
+                        row
+                        border-neutro-gray2
+                        rounded
+                        p-1
+                        sub-title-2
+                        mt-4
+                        mb-2
+                        mx-0
+                      ">
+                      <dt class="col text-center">Subtotal</dt>
+                      <dt class="col text-center">
+                        {{ provider.totalQuantity }}
+                      </dt>
+                      <dt class="col">
+                        {{
+                        provider.totalAmount | currency: "USD":"symbol":"3.0"
+                        }}
+                      </dt>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /operator data transation table -->
+            </div>
+          </div>
+          <!-- / operator table -->
+        </div>
+        <!-- /schedules array -->
+      </div>
+      <!-- /Type taxes array -->
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    <div class="d-flex justify-content-center">
+      Debe elegir una fecha o rango de fechas para previsualizar el resumen del
+      informe.
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,18 @@
+[
+  {
+    "sectionId":"icon-notebook1-primary",
+    "name": "Reporte consolidado",
+    "icon":"./../assets/img/icons/calendar-primary.svg",
+    "funtions": ["Visualiza reportes por fechas", "Genera el recaudo electrónico ATH"],
+    "url": "reports/reporte-consolidado"
+},
+{
+  "sectionId":"icon-notebook2-primary",
+  "name": "Reportes planos distritos",
+  "icon":"Error",
+  "funtions": [
+      "Genera reportes planos "
+  ],
+  "url": "modal1"
+}
+]

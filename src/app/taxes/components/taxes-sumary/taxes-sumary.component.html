@@ -1,0 +1,49 @@
+<div class="row mb-lg-5">
+  <div class="col-12 col-lg-4" *ngFor="let totalSchedule of taxDate?.schedules">
+    <div class="border-text-div" [ngClass]="{
+        'text-semantic-blue3 border-semantic-blue3': totalSchedule?.code === '0',
+        'text-semantic-blue2 border-semantic-blue2': totalSchedule?.code === '1'
+      }">
+      <div class="border-text sub-title-1">
+        {{ totalSchedule?.type | titlecase }}
+      </div>
+      <h2 class="mx-lg-3 mt-lg-3 headline-3">
+        {{ totalSchedule?.totalQuantity }}
+      </h2>
+      <p class="mx-lg-3 text-neutro-gray1 sub-title-2">
+        Cantidad de transacciones de recaudo.
+      </p>
+      <h2 class="mx-lg-3 mt-lg-3 headline-3">
+        {{ totalSchedule?.totalAmount | currency: "USD":"symbol":"3.0" }}
+      </h2>
+      <p class="mx-lg-3 text-neutro-gray1 sub-title-2">
+        Total de transacciones de recaudo.
+      </p>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-4">
+    <div class="border-text-div border border-success">
+      <div class="border-text sub-title-1 text-success">Total del día</div>
+      <h2 class="mx-lg-3 mt-lg-3 headline-3 text-success">
+        {{ taxDate?.totalQuantity }}
+      </h2>
+      <p class="mx-lg-3 text-neutro-gray1 sub-title-2">
+        Cantidad de transacciones de recaudo.
+      </p>
+      <h2 class="mx-lg-3 mt-lg-3 headline-3 text-success">
+        {{ taxDate?.totalAmount | currency: "USD":"symbol":"3.0" }}
+      </h2>
+      <p class="mx-lg-3 text-neutro-gray1 sub-title-2">
+        Total de transacciones de recaudo.
+      </p>
+    </div>
+  </div>
+</div>
+
+<ng-template #elseBlock>
+  <div class="d-flex justify-content-center">
+    Debe elegir una fecha o rango de fechas para previsualizar el resumen del
+    informe.
+  </div>
+</ng-template>

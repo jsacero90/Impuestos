@@ -1,0 +1,203 @@
+<div class="jumbotron jumbotron-fluid pt-3 mx-4">
+  <div class="container px-2">
+    <h2 class="custom-title headline-4 text-corporate-occidente-dark">Editar un tipo de Impuesto</h2>
+    <p class="text-neutro-tipografic text-explicative my-4">
+      Solo puedes modificar el nombre y el estado del tipo de impuesto.
+    </p>
+  </div>
+  <form [formGroup]="forma" id="forma">
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="taxesCategory" class="form-label sub-title-3 text-neutro-blue1">Categoría del tipo de
+              impuesto<span class="text-danger">*</span></label>
+
+            <div *ngIf="!dataModal" class="right-inner-addon">
+              <select id="taxesCategory" class="form-select select-primary-corporate sub-title-3"
+                formControlName="taxesCategory" [ngClass]="{
+                              'border border-danger': false,
+                              'border border-success': false
+                            }">
+                <option value="noSelect" selected disabled hidden class="sub-title-3">Selecciona la categoría</option>
+
+              </select>
+            </div>
+
+
+            <div *ngIf="dataModal">
+              <input id="taxesCategory" type="text"
+                class="custom-place form-control input-primary-corporate sub-title-3"
+                placeholder="Ingresa un nombre para el tipo de impuesto" formControlName="taxesCategory" [ngClass]="{
+                      'is-invalid': false,
+                      'is-valid': false
+                    }" />
+            </div>
+
+
+
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Por favor ingrese una categoría</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="taxesTypeCode" class="form-label sub-title-3 text-neutro-blue1">Código del tipo de
+              impuesto<span class="text-danger">*</span></label>
+
+            <div *ngIf="!dataModal" class="right-inner-addon">
+              <select id="taxesTypeCode" class="form-select select-primary-corporate sub-title-3"
+                formControlName="taxesTypeCode" [ngClass]="{
+                            'border border-danger': false,
+                            'border border-success': false
+                          }">
+                <option value="noSelect" selected disabled hidden class="sub-title-3">Selecciona un código</option>
+
+              </select>
+            </div>
+
+
+            <div *ngIf="dataModal">
+              <input id="taxesTypeCode" type="text"
+                class="custom-place form-control input-primary-corporate sub-title-3"
+                placeholder="Ingresa un nombre para el tipo de impuesto" formControlName="taxesTypeCode" [ngClass]="{
+                      'is-invalid': false,
+                      'is-valid': false
+                    }" />
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Por favor ingrese una código del tipo de impuesto</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="taxesTypeName" class="form-label sub-title-3 text-neutro-blue1">Nombre del tipo de impuesto<span
+                class="text-danger">*</span></label>
+
+            <div>
+              <input id="taxesTypeName" type="text"
+                class="custom-place form-control input-primary-corporate sub-title-3"
+                placeholder="Ingresa un nombre para el tipo de impuesto" formControlName="taxesTypeName" [ngClass]="{
+                      'is-invalid': false,
+                      'is-valid': false
+                    }" />
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Debe ingresar nombre tipo de impuesto</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="operationCode" class="form-label sub-title-3 text-neutro-blue1">Código de operación<span
+                class="text-danger">*</span></label>
+
+            <div>
+              <input id="operationCode" type="text"
+                class="custom-place form-control input-primary-corporate sub-title-3"
+                placeholder="Ingresa un código de operación" formControlName="operationCode" [ngClass]="{
+                  'is-invalid': false,
+                  'is-valid': false
+                }" />
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Por favor ingrese un código de operación</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="accountantCode" class="form-label sub-title-3 text-neutro-blue1">Cuenta contable<span
+                class="text-danger">*</span></label>
+
+            <div>
+              <input id="accountantCode" type="text"
+                class="custom-place form-control input-primary-corporate sub-title-3"
+                placeholder="Ingrese un número para el reporte" formControlName="accountantCode" [ngClass]="{
+                      'is-invalid': false,
+                      'is-valid': false
+                    }" />
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Debe ingresar una fecha valida</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="stateTaxeType" class="form-label sub-title-3 text-neutro-blue1">Estado del tipo de
+              impuesto<span class="text-danger">*</span></label>
+
+            <div class="border border-1 rounded position-relative">
+              <div class="row my-1 mx-0">
+                <div class="col-5 text-neutro-tipografic text-explicative icons-custom-end-modal position-relative">
+                  Habilitada
+                  <i #iconToggle [ngClass]="{
+                    'icon-error-red': dataModal?.taxTypeStatus === 0,
+                    'icon-check-green': dataModal?.taxTypeStatus === 1
+                  }"></i>
+                </div>
+
+                <div class="col-3 ">
+                  <div class="form-check form-switch ">
+                    <input id="stateTaxeType" class="form-check-input position-absolute end-0 me-3 mb-1" type="checkbox"
+                      #stateTaxeType formControlName="stateTaxeType" (change)="checkInput($event)" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="col-12 d-grid gap-2">
+          <button id="btnCancel" type="button" class="btn btn-secondary" (click)="closeModal()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="col-12 d-grid gap-2">
+          <button type="button" class="btn btn-primary" (click)="send()" [disabled]="forma.invalid">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>

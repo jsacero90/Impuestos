@@ -1,0 +1,286 @@
+<div class="jumbotron jumbotron-fluid pt-3 mx-4">
+  <div class="container px-2" *ngIf="!editabled">
+    <h2 class="custom-title headline-4">Crear nueva oficina</h2>
+    <p class="text-neutro-tipografic text-explicative my-4">
+      Recuerda que los campos marcados con (<span class="text-danger">*</span>)
+      son obligatorios.
+    </p>
+  </div>
+  <div class="container px-2" *ngIf="editabled">
+    <h2 class="custom-title headline-4">Editar oficina</h2>
+    <p class="text-neutro-tipografic text-explicative my-4">
+      Solo puedes modificar el nombre, estado de la oficina, centro contable, centro zonal, asignar administración y
+      los impuestos que recauda.
+    </p>
+  </div>
+  <form [formGroup]="forma" id="forma">
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="row">
+          <div class="col-12">
+            <label for="officeCode" class="form-label sub-title-3 text-neutro-blue1">Código de la Oficina<span
+                class="text-danger">*</span></label>
+
+            <div>
+              <i [ngClass]="{ 'icon-check': officeCodeValid }"></i>
+              <input type="text" id="officeCode" class="custom-place form-control input-primary-corporate sub-title-3"
+                placeholder="Ingresa el código de la oficina" formControlName="officeCode" [ngClass]="{
+                  'border border-danger': officeCodeInValid,
+                  'border border-success': officeCodeValid
+                }" />
+            </div>
+            <div *ngIf="officeCodeInValid">
+              <small class="text-danger text-validation">Ingresa un código.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="row">
+          <div class="col-12">
+            <label for="officeName" class="form-label sub-title-3 text-neutro-blue1">Nombre de la oficina<span
+                class="text-danger">*</span></label>
+
+            <div>
+              <i [ngClass]="{ 'icon-check': officeNameValid }"></i>
+              <input id="officeName" type="text" class="custom-place form-control input-primary-corporate sub-title-3"
+                placeholder="Ingresa el nombre de la oficina" formControlName="officeName" [ngClass]="{
+                  'border border-danger': officeNameInValid,
+                  'border border-success': officeNameValid
+                }" />
+            </div>
+            <div *ngIf="officeNameInValid">
+              <small class="text-danger text-validation">Ingresa un nombre.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="row">
+          <div class="col-12">
+            <label for="state" class="form-label sub-title-3 text-neutro-blue1">Estado de la oficina<span
+                class="text-danger">*</span></label>
+
+            <div class="border border-1 rounded">
+              <div class="row my-1 mx-0">
+                <div class="col-5 text-neutro-tipografic text-explicative">
+                  Habilitada
+                </div>
+                <img class="custon-toggle-icon" *ngIf="iconCheck === true" src="assets/img/icons/check-green.svg">
+                <img class="custon-toggle-icon" *ngIf="iconCheck === false" src="assets/img/icons/rood-red.svg">
+                <!-- style="width: 40px; height: 30px; padding: 0;" -->
+                <div class="col-3">
+                  <div class="form-check form-switch">
+                    <input id="state" class="form-check-input" type="checkbox" id="state" formControlName="state"
+                      (change)="changeCheck($event)" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Opp! Algo ha salido mal aquí.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <!-- select ciudad -->
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="city" class="form-label sub-title-3 text-neutro-blue1">Ciudad<span
+                class="text-danger">*</span></label>
+
+            <div class="right-inner-addon">
+              <select id="city" class="form-select select-primary-corporate" aria-label="Tipo de documento"
+                formControlName="city" [ngClass]="{
+                  'border border-danger': cityInValid,
+                  'border border-success': cityValid
+                }">
+                <option value="" selected disabled hidden>Seleccione ciudad</option>
+                <option [value]="city?.cityId" *ngFor="let city of cities">
+                  {{city?.cityName |titlecase}}</option>
+              </select>
+            </div>
+            <div *ngIf="cityInValid">
+              <small class="text-danger text-validation">Selecciona una opción.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /select ciudad -->
+      <!-- select region -->
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="region" class="form-label sub-title-3 text-neutro-blue1">Región<span
+                class="text-danger">*</span></label>
+
+            <div class="right-inner-addon">
+              <select class="form-select select-primary-corporate" aria-label="Default select example"
+                formControlName="region" [ngClass]="{
+                  'border border-danger': regionInValid,
+                  'border border-success': regionValid
+                }">
+                <option value="" selected disabled hidden>Seleccione Región</option>
+                <option [value]="region?.regionId" *ngFor="let region of regions">
+                  {{region?.regionDescription |titlecase}}</option>
+              </select>
+            </div>
+            <div *ngIf="regionInValid">
+              <small class="text-danger text-validation">Selecciona una opción.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /select region -->
+    </div>
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <!-- select Oficina Padre -->
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="officeParent" class="form-label sub-title-3 text-neutro-blue1">Oficina padre<span
+                class="text-danger">*</span></label>
+
+            <div class="right-inner-addon">
+              <select class="form-select select-primary-corporate" aria-label="Default select example"
+                formControlName="officeParent" [ngClass]="{
+                  'border border-danger': officeParentInValid,
+                  'border border-success': officeParentValid
+                }">
+                <option value="" selected disabled hidden>Selecciona una oficina padre</option>
+                <option [value]="office?.officeCode" *ngFor="let office of parentOffice">
+                  {{office?.officeName |titlecase}}</option>
+              </select>
+            </div>
+            <div *ngIf="officeParentInValid">
+              <small class="text-danger text-validation">Selecciona una opción.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="acountCenter" class="form-label sub-title-3 text-neutro-blue1">Centro contable<span
+                class="text-danger">*</span></label>
+
+            <div>
+              <input type="text" class="form-control input-primary-corporate sub-title-3" formControlName="acountCenter"
+                placeholder="Ingresa un código de centro contable" [ngClass]="{
+                  'border border-danger': acountCenterInValid,
+                  'border border-success': acountCenterValid
+                }" />
+            </div>
+            <div *ngIf="acountCenterInValid">
+              <small class="text-danger text-validation">Ingresa un codigo</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="zonalCenter" class="form-label sub-title-3 text-neutro-blue1">Centro zonal<span
+                class="text-danger">*</span></label>
+
+            <div>
+              <input type="text" class="form-control input-primary-corporate sub-title-3" formControlName="zonalCenter"
+                placeholder="Ingresa un código de centro zonal" [ngClass]="{
+                  'border border-danger': zonalCenterInValid,
+                  'border border-success': zonalCenterValid
+                }" />
+            </div>
+            <div *ngIf="zonalCenterInValid">
+              <small class="text-danger text-validation">Ingresa un codigo</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+        <div class="row">
+          <div class="col-12">
+            <label for="codeAdmin" class="form-label sub-title-3 text-neutro-blue1">Asignar administración<span
+                class="text-danger">*</span></label>
+
+            <div>
+              <input type="text" class="form-control input-primary-corporate sub-title-3" formControlName="codeAdmin"
+                placeholder="Ingresa un código de administración" [ngClass]="{
+                  'border border-danger': codeAdminInValid,
+                  'border border-success': codeAdminValid
+                }" />
+            </div>
+            <div *ngIf="codeAdminInValid">
+              <small class="text-danger text-validation">Ingresa un codigo</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /select region -->
+    </div>
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+        <div class="row">
+          <div class="col-12">
+            <label for="taxes" class="form-label sub-title-3 text-neutro-blue1">Impuestos que recauda esta oficina<span
+                class="text-danger">*</span></label>
+            <p class="text-neutro-tipografic text-explicative mb-3">
+              Para selección múltiple mantén oprimido “Ctrl” o “Command” y
+              selecciona los impuestos que deseas.
+            </p>
+            <div class="right-inner-addon">
+              <select class="form-select custom-select" multiple aria-label="Default select example"
+                formControlName="taxes" [ngClass]="{
+                  'border border-danger': taxesInValid,
+                  'border border-success': taxesValid
+                }">
+                >
+                <option [value]="category?.code" *ngFor="let category of categoryTaxesList">
+                  {{category?.name |titlecase}}</option>
+              </select>
+            </div>
+            <div *ngIf="false">
+              <small class="text-danger text-validation">Opp! Algo ha salido mal aquí.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4 container-lg mx-0 px-0">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="col-12 d-grid gap-2">
+          <button id="btnCancel" type="button" class="btn btn-secondary" (click)="closeModal()">
+            <!--  aria-label="Close" data-bs-dismiss="modal" -->
+            Cancelar
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="col-12 d-grid gap-2">
+          <button type="button" class="btn btn-primary" *ngIf="editabled" (click)="sendUpdate()">
+            Guardar..
+          </button>
+          <button type="button" class="btn btn-primary" *ngIf="!editabled" (click)="send()">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,15 @@
+[
+    {
+        "notificationId":"e1",
+        "notificationType": "error",
+        "textTitle":"Error",
+        "text": "Ha ocurrido un error con la descarga, inténtalo nuevamente."
+    },
+
+    {
+      "notificationId":"error",
+      "notificationType": "error",
+      "textTitle":"Error",
+      "text": "Oops algo a pasado. !"
+    }
+]
